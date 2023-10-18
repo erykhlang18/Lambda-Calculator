@@ -6,6 +6,16 @@ interface MathOperation {
 
 public class CalculatorApp {
 
+
+
+
+ static class SubtractionOperation implements MathOperation {
+        @Override
+        public double compute(double a, double b) {
+            return a - b;
+        }
+    }
+
     public static MathOperation sub() {
         // TODO: Define a class named SubtractionOperation that implements
         // MathOperation within this java source file, and outside of this
@@ -15,21 +25,25 @@ public class CalculatorApp {
 	// should be defined to return the difference (first minus second)
 	// of it's operands.  On the line below, return an instance of this
 	// class from this method (instead of returning null).
-	return null;
+	return new SubtractionOperation();
     }
 
     public static MathOperation add() {
         // TODO:  Return a new instance (instead of the null below) of an
 	// anonymous class that implements MathOperation and defines its
 	// compute method to return the sum of its operands. 
-	return null;
+	        return new MathOperation() {
+            @Override
+            public double compute(double a, double b) {
+                return a + b;
     }
-
+};
+}
     public static MathOperation mul() {
         // TODO: Use a lambda expression on the line below to create and
         // return (instead of the null below) an object with a compute method
 	// that returns the product of its operands.
-	return null;
+	return (a, b) -> a * b;
     }
 
     /**
